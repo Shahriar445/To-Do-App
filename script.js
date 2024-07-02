@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const taskDescription = row.cells[1].textContent;
         document.getElementById('new-task').value = taskName;
         document.getElementById('task-description').value = taskDescription;
-        deleteTask(row);
+        //deleteTask(row);
     }
 
     function completeTask(row) {
@@ -89,3 +89,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
 });
+
+

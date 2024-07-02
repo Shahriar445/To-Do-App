@@ -1,0 +1,55 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th, td {
+    padding: 15px;
+    background-color: aqua;
+}
+.add-task-box, .new-task-box, .complete-task-list {
+    margin: 20px 0;
+    
+}
+.add-task-box{
+    margin:20px 0;
+    background-color:lightblue;
+}
+.add-task-form{
+   margin: 20px,0;
+}
+#btn{
+    background-color: #04AA6D; /* Green */
+    border: none;
+    
+    color: white;
+    margin-top: 15px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+#btn:hover{
+    background-color: rgb(255, 0, 0);
+}
+.task-form{
+    margin: 5, 5,5,5;
+   
+}
+#new-task{
+    padding: 5px;
+    margin: 5px;
+}
+#task-description{
+    padding: 5px;
+    margin: 5px;
+          
+}
