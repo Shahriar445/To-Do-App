@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-APP</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th, td {
+            padding: 15px;
+            background-color: aqua;
+        }
+        .add-task-box, .new-task-box, .complete-task-list {
+            margin: 20px 0;
+            
+        }
+        .add-task-box{
+            margin:20px 0;
+            background-color:lightblue;
+        }
+        .add-task-form{
+           margin: 20px,0;
+        }
+        #btn{
+            background-color: #04AA6D; /* Green */
+            border: none;
+            
+            color: white;
+            margin-top: 15px;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 12px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+        #btn:hover{
+            background-color: rgb(255, 0, 0);
+        }
+        .task-form{
+            margin: 5, 5,5,5;
+           
+        }
+        #new-task{
+            padding: 5px;
+            margin: 5px;
+        }
+        #task-description{
+            padding: 5px;
+            margin: 5px;
+                  
+        }
+    </style>
+</head>
+<body>
+    <div class="add-task-box">
+        <h1>To-Do-App</h1>
+        <form id="add-task-form" class="task-form">
+            <label for="new-task">Task Name</label>
+            <input type="text" id="new-task" required><br>
+            <label for="task-description">Description</label>
+            <input type="text" id="task-description" required><br>
+            <input type="submit" id="btn">
+        </form>
+    </div>
+
+    <div class="new-task-box">
+        <h1>Incomplete Tasks</h1>
+        <table id="incomplete-tasks">
+            <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="complete-task-list">
+        <h1>Completed Tasks</h1>
+        <table id="completed-tasks">
+            <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="script.js"></script>  
+</body>
+</html>
