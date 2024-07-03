@@ -1,75 +1,65 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
+    let editRow = null;
 
     document.getElementById('add-task-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        addTask();
-        
+        addOrUpdateTask();
     });
-// for task function her called all function and complete new task added 
 
-    function addTask() {
+    function addOrUpdateTask() {
         const taskName = document.getElementById('new-task').value;
         const taskDescription = document.getElementById('task-description').value;
 
-        
+        if (editRow) {
+            editRow.cells[0].textContent = taskName;
+            editRow.cells[1].textContent = taskDescription;
+            editRow = null;
+        } else {
+            const table = document.getElementById('incomplete-tasks');
+            const row = table.insertRow();
 
-        const table = document.getElementById('incomplete-tasks');
-        const row = table.insertRow(); 
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
 
-        const cell1 = row.insertCell(0);
-        const cell2 = row.insertCell(1);
-        const cell3 = row.insertCell(2);
+            cell1.textContent = taskName;
+            cell2.textContent = taskDescription;
 
-        cell1.textContent = taskName;
-        cell2.textContent = taskDescription;
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.addEventListener('click', function() {
+                editTask(row);
+            });
 
+            const completeButton = document.createElement('button');
+            completeButton.textContent = 'Complete';
+            completeButton.addEventListener('click', function() {
+                completeTask(row);
+            });
 
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', function() {
+                deleteTask(row);
+            });
 
-
-        const editButton = document.createElement('button'); // create button for edit 
-        editButton.textContent = 'Edit';
-        editButton.addEventListener('click', function() {
-            editTask(row);
-        
-        });
-
-        const completeButton = document.createElement('button');// create button for complete 
-        completeButton.textContent = 'Complete';
-        completeButton.addEventListener('click', function() {
-            completeTask(row);
-        });
-
-        const deleteButton = document.createElement('button');// create button for delete
-        deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', function() {
-            deleteTask(row);
-        });
-
-
-        // btn add in action row  table 
-        cell3.appendChild(editButton);
-
-        cell3.appendChild(completeButton);
-        cell3.appendChild(deleteButton);
-
-
+            cell3.appendChild(editButton);
+            cell3.appendChild(completeButton);
+            cell3.appendChild(deleteButton);
+        }
 
         document.getElementById('new-task').value = '';
         document.getElementById('task-description').value = '';
     }
- 
+
     function editTask(row) {
-        const taskName = row.cells[0].textContent;
-        const taskDescription = row.cells[1].textContent;
-        document.getElementById('new-task').value = taskName;
-        document.getElementById('task-description').value = taskDescription;
-        //deleteTask(row);
+        document.getElementById('new-task').value = row.cells[0].textContent;
+        document.getElementById('task-description').value = row.cells[1].textContent;
+        editRow = row;
     }
 
     function completeTask(row) {
-        const table = document.getElementById('completed-tasks');
+        const table = document.getElementById('completed-task');
         table.appendChild(row);
 
         while (row.cells[2].firstChild) {
@@ -87,7 +77,4 @@ document.addEventListener('DOMContentLoaded', function() {
     function deleteTask(row) {
         row.parentNode.removeChild(row);
     }
-    
 });
-
-
